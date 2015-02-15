@@ -1,0 +1,6 @@
+<h1>Book a Reservation at @restaurant.name</h1>
+    <%= render 'form' %>
+
+<div>
+  <%= link_to "Back to #{@restaurant.name}'s", restaurant_path(@restaurant) %>  
+</div>
