@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  
   def index
   	@restaurants = Restaurant.all
   end
@@ -20,7 +21,7 @@ class RestaurantsController < ApplicationController
 
   def update
   end
-  
+
   def destroy
   end
 

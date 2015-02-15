@@ -1,4 +1,8 @@
-<h1>Restaurants#index</h1>
+<h1>Restaurant Listing</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <p><%= link_to restaurant.name, restaurant_path(restaurant) %> </p>
+<% end %>
 
 
 
@@ -10,10 +14,9 @@
 
 
 
+<!--   link_to (display the name), give the link(iterate)
+show restaurant directory here, iterate over the restaurant obj and show a list of restaurant names from model. access with link_to restaurant.name, (a link to the specific restaurant)
 
-
-
-#show restaurant directory here
-#signin/login
-#add a restaurant
-#search for restaurants
+signin/login
+add a restaurant
+search for restaurants -->
