@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-  	@restaurant = Product.find(params[:id])
+  	@restaurant = Restaurant.find(params[:id])
   end
 
   def create
