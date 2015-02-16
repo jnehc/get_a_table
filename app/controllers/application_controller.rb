@@ -10,3 +10,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 end
+
+
+# Helper methods are are use to share methods defined in the controller with the view. 
+# This is use for any method that you need to access from both controllers and helpers/views. 
+# Typical helper methods are not available in controllers.
+# Create a current_user helper method to show the log in status of the user. 
+# If the user is logged in we want to display "Signed in as [USERNAME]" or 
+# else display "Login or Sign up"
