@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gettable</title>
+  <title>Get Me A Table</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-  <body>
-  <div class="main_navigation">
-					   <div class ="login_navigation">
+  		<body>
+  	<div class="main_navigation">
+				<div class ="login_navigation">
 							   	<% if current_user %>
 							    Signed in as <%= current_user.name %> 
 							    <%= link_to "Log out", session_path("current"), :class => "navstyle", :method => :delete %>
 							    <% else %>
 							    <%= link_to "Log in", new_session_path, :class => "navstyle" %> | <%= link_to "Sign up", new_user_path, :class => "navstyle" %>
 							    <% end %>
-					    </div>
+				</div>
 
 		       <ul>
-		       	 <li>
-		       	 	<%= link_to "HOME", restaurants_path, :class => "navstyle" %></li><li><%= link_to "ADD RESTAURANT LISTING", new_restaurant_url, :class => "navstyle" %>
-		       	 </li>
-		         <li>
-		         	<% if flash[:notice] %><p id="notice"><%= flash[:notice] %></p>
-				    <% end %>
-				    <% if flash[:alert] %><p id="alert"><%= flash[:alert] %></p>
-				    <% end %>
-				</li>
+						       	 <li>
+						       	 	<%= link_to "HOME", restaurants_path, :class => "navstyle" %></li><li><%= link_to "ADD RESTAURANT LISTING", new_restaurant_url, :class => "navstyle" %>
+						       	 </li>
+						         <li>
+						         	<% if flash[:notice] %><p id="notice"><%= flash[:notice] %></p>
+								    <% end %>
+								    <% if flash[:alert] %><p id="alert"><%= flash[:alert] %></p>
+								    <% end %>
+								</li>
 		       </ul>
-  </div>
- <div class ="wrapper">     
-      
-<!-- add search from http://railscasts.com/episodes/37-simple-search-form-->
-<!-- add here in view, model and controller -->
-<% form_tag restaurants_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-  
-
-    <%= yield %>
-     
-   </div>
-  </body>
-</html>
+	 </div>
+				 <div class ="wrapper">     
+				      
+				<!-- add search from http://railscasts.com/episodes/37-simple-search-form-->
+				<!-- added here, then in view, model and controller -->
+								<% form_tag restaurants_path, :method => 'get' do %>
+								  <p>
+								    <%= text_field_tag :search, params[:search] %>
+								    <%= submit_tag "Search", :name => nil %>
+								  </p>
+								<% end %>
+				    		<%= yield %>
+				</div>
+  		</body>
+  </html>

@@ -10,5 +10,23 @@
 <div class ="navstyle">
 <%= link_to "Edit", edit_restaurant_path %>
 <%= link_to "Delete", @restaurant, method: :delete, data: {confirm:"Are you sure?"} %>
-<%= link_to "Book A Table", sessions_path, :class => "navstyle" %>
+<%= link_to "Book A Table", new_restaurant_reservation_path(@restaurant), :class => "navstyle" %>
+
+  <h1>Booked Reservations</h1>
+  <% @restaurant.reservations.each do |reservation| %>
+
+      <% if reservation.user != nil %>
+        <strong>Reservation is booked for:</strong> <%= reservation.user.name %>
+      <% end %><br>
+      <strong>Party size:</strong> <%= reservation.party_size %><br>
+      <strong>Date:</strong> <%= reservation.date %><br>
+      <strong>Time:</strong> <%= reservation.time %>
+      <br>
+      <% if reservation.user == current_user %>
+        <%= link_to "Edit" , edit_restaurant_reservation_url(@restaurant, reservation) %>
+        <%= link_to "Cancel Reservation", restaurant_reservation_path(@restaurant, reservation), method: :delete, data: {confirm: "Are you sure you want to delete this restaurant?"} %>
+
+      <% end %>
+    </p>
+  <% end %>
 </div>

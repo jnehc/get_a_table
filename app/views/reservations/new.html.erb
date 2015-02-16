@@ -1,8 +1,6 @@
-<h1>Book a Reservation at @restaurant.name</h1>
-
 <% if current_user %>
   <h4>New Reservation</h4>
-    <%= render 'form' %><!-- nest this reservations/form -->
+    <%= render 'reservations/form' %><!-- nested for better form -->
   <% else %>
   <p>Please <%= link_to "Log In", new_session_path %> to make a reservation.</p>
 <% end %>
