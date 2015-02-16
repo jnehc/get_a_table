@@ -1,7 +1,8 @@
 class ReservationsController < ApplicationController
  #add create and update to reservations
  before_filter :load_restaurant
-
+ before_filter :ensure_logged_in, only: [:create, :destroy]
+ 
  def show
   @reservation = Reservation.find(params[:id])
 end
