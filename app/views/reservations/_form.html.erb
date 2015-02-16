@@ -1,20 +1,18 @@
 <%= form_for ([@restaurant, @reservation]) do |r| %> 
 	<div class="field">
-		<%= r.label :party_size %>
-		<%= r.text_field :party_size %>
+		<%= r.label :date %>
+		<%= r.date_field :date %>
+		<%=r.label :time %>
+		<%= select(:reservation, :time, options_for_select(["11:00AM", "12:00PM", "1:00PM", "2:00PM", "3:00PM", "4:00PM", "5:00PM", "6:00PM", "7:00PM", "8:00PM", "9:00PM", "10:00PM", "11:00PM"]))%>
+			<%= r.label :party_size %>
+			<%= r.text_field :party_size %>
 	</div>
-	<div class="field">
-		<div><%= r.label :date %>
-		<%= r.text_field :date %></div>
-	</div>
-	<div class="field">
-		<div><%=r.label :time %>
-		<%= r.text_field :time, type: 'time', step: "#{60.minutes}" %></div>
-		<!-- use a drop down for time -->
-	</div>
-
 	<div class="action">
-		<%= r.submit %>
+	<%= r.submit %>
 	</div>
 
 	<% end %>
+
+
+
+
