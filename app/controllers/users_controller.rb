@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to products_url, notice: "You are now signed up!"
+      redirect_to restaurants_url, notice: "You are now signed up!"
     else
       render "new"
     end
