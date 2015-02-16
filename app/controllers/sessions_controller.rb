@@ -3,14 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to restaurant_url, notice: "Logged in!"
-    else
-    	flash.now[:alert] = "Invalid email or password"
-		render "new"
-    end
+        user = User.find_by(email: params[:email])
+        if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        redirect_to restaurant_url, notice: "Logged in!"
+      else
+  		render "new"
+      end
   end
 
   def destroy
@@ -30,3 +29,4 @@ end
 # This is the entire process of logging in. This gist of logging in is that we are setting a hash in our users' browser to let our server (application) reference as they navigate through the application.
 
 # Now to create the associated session form. Take note that we are using a form_tag and not a form_for here. This is because there is no model associated with a session.
+#

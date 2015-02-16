@@ -1,9 +1,16 @@
-<ul class="nav"><li>Link</li><li>  |  Log In</li><li> |  Sign Up</div>
+<h1>Restaurants</h1>
 
-<h1>Restaurant Listing</h1>
+<!-- add search from http://railscasts.com/episodes/37-simple-search-form-->
+<!-- add here in view, model and controller -->
+<% form_tag restaurants_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <% @restaurants.each do |restaurant| %>
-  <p><%= link_to restaurant.name, restaurant_path(restaurant) %> </p>
+  <p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
 <% end %>
 
 

@@ -60,7 +60,7 @@ end
   end
 
 def load_restaurant
-    @restaurant = Restaurant.find(params[:product_id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
 end

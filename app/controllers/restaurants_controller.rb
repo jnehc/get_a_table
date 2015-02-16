@@ -1,7 +1,8 @@
 class RestaurantsController < ApplicationController
   
   def index
-  	@restaurants = Restaurant.all
+    #@restaurants = Restaurant.all
+    @restaurants = Restaurant.search(params[:search])
   end
 
   def show
@@ -21,23 +22,24 @@ def create
   if @restaurant.save
       redirect_to restaurants_url(@restaurant)
         else
-      render :new
+        render :new
   end
 end
 
 
-  def update
+def update
     @restaurant = Restaurant.find(params[:id])
     if @restaurant.update_attributes(restaurant_params)
       redirect_to restaurant_path(@restaurant)
+          else
+          render :edit
     end
-      render :edit
-  end
+end
 
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
-    @product.destroy
+    @restaurant.destroy
     redirect_to restaurants_path
   end
 
@@ -49,7 +51,7 @@ end
 end
 
 
-
+#
 
 # class ProductsController < ApplicationController
 #   def index
