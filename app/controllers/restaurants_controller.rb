@@ -2,7 +2,11 @@ class RestaurantsController < ApplicationController
   
   def index
     @restaurants = Restaurant.search(params[:search])
+  #  @restaurants = Restaurant.find_by_first_letter(params[:letter])
+
   end
+
+
 
   def show
   	@restaurant = Restaurant.find(params[:id])
@@ -41,6 +45,7 @@ end
     @restaurant.destroy
     redirect_to restaurants_path
   end
+
 
   private
    def restaurant_params

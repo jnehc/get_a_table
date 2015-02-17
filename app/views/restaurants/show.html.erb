@@ -1,6 +1,5 @@
 <h1><%= @restaurant.name %></h1>
-<!-- show a specific restaurant using restaurant model info. name,descrip,addy,tel, category -->
-<!-- links: Edit, Delete, Book a table -->
+<div class ="placeholderpicture"></div>
 <div class="restaurantdescription">
   <%= @restaurant.description%><br>
   <%= @restaurant.address%> <br>
@@ -8,14 +7,14 @@
   <%= @restaurant.category%><br>
 </div>
 <div class ="navstyle">
-<%= link_to "Edit", edit_restaurant_path %>
-<%= link_to "Delete", @restaurant, method: :delete, data: {confirm:"Are you sure?"} %>
-<%= link_to "Book A Table", new_restaurant_reservation_path(@restaurant), :class => "navstyle" %>
-
-  <h1>Booked Reservations</h1>
+<%= link_to "Edit", edit_restaurant_path, :class =>"inner_back_btns" %>
+<%= link_to "Delete", @restaurant, :class =>"inner_back_btns", method: :delete, data: {confirm:"Are you sure?"} %>
+<%= link_to "Book A Table", new_restaurant_reservation_path(@restaurant), :class =>"inner_back_btns" %>
+<%= link_to "Back To Listings", restaurants_url, :class =>"inner_back_btns" %>
+</div>
   <% @restaurant.reservations.each do |reservation| %>
-
       <% if reservation.user != nil %>
+        <h1>Booked Reservations</h1>
         <strong>Reservation is booked for:</strong> <%= reservation.user.name %>
       <% end %><br>
       <strong>Party size:</strong> <%= reservation.party_size %><br>

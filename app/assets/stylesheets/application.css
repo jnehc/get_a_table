@@ -19,14 +19,35 @@ body {
 
 
   .main_navigation {background-color:#2fa192; padding:8px 0 8px 0;}
-  .main_navigation li {display:inline; list-style-type: none; padding-right: 20px;}
+  .inner_back_btns, .main_navigation li {display:inline; list-style-type: none; padding-right: 20px; color:#fff}
+  .inner_back_btns {margin-top:20px;}
+  .login_navigation { position: relative; display:inline; float:right; padding: 14px 30px 0;}
+  .login_navigation {padding: 0 20px;}
+  .navstyle {padding: 20px 20px 0 0; }
+  
 
-  .login_navigation { position: relative; display:inline; float:right; padding: 14px 30px 0 0;}
-  .navstyle {font-family: Arial, Helvetica, sans-serif; font-size:13px; font-weight: 900; color: #fff;}
+  .navstyle, .restaurantdescription {font-family: Arial, Helvetica, sans-serif; font-size:13px; font-weight: 900; color: #fff;}
+   
+   /*------images ----------*/
 
-  .field {
-    margin: 10px 0;
-  }
+ .placeholderpicture {content:url(http://lorempixel.com/400/200/food/)no-repeat; width:400px; height:200px; }
+  /* "http://lorempixel.com/400/200/food/1")no-repeat; width:400px; height:200px;
+  /*placehold.it/400x200 */
+  .welcomeimage {content:url(/app/assets/images/getAtable_cutlery.gif)no-repeat; width:332px; height:215px;}
+
+
+hr  {
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #1fbba6;
+  margin-right: 50px;
+}
+
+
+
+
+
+
+  .field {margin: 10px 0;}
   .field div {margin-bottom:5px;}
   .field, h1{color: #fff;}
 
